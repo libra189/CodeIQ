@@ -1,4 +1,11 @@
+#!D:\Python\Python27\python
 # coding: utf-8
+
+# 1000桁の円周率を先頭の数値から二桁ずつ取り、
+# Asciiコードに変換し、"raspberry"いずれかの文字と合う文字をカウントする
+
+# 実行環境
+# python2.7.8のみ確認
 
 # arctan(1/n)をTaylor展開で求める
 def arctan(p, n):
@@ -15,7 +22,7 @@ def arctan(p, n):
     return s
 
 # 円周率を求める
-# 整数部分「3」も含む仮数表現の長整数で返します
+# 整数部分「3」も含む仮数表現の長整数で返す
 def pi_mantissa(digit, redund=10):
     p = 10**digit
     q = 10**redund
@@ -41,9 +48,12 @@ if __name__ == '__main__':
 	word = [i for i in "raspberry"]
 	alpha_index = indexmap()
 
+    # 1000桁の円周率の生成
+    # ただし、実数のみとする
 	digit = 1000
 	pi = str(pi_mantissa(digit))[1:]
 
+    # 探索
 	i = 0
 	count = 0
 	while i <= len(pi):
